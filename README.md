@@ -1,6 +1,24 @@
-#TODO
+**SETUP**
+1. Download node.js
+2. Download the bot
+3. Go to Discord Developer Portal and get yourself a discord token
+4. Go to https://tracker.gg/developers/apps and create an application 
+5. When you have all the tokens but them in the config.json file
+6. Run the start.bat file
+7. Get a link for the bot at: https://discordapi.com/permissions.html#0
+8. Enjoy!
+
+If you dont understand something then dm me in discord: TTV_Muumi#5637
+
+**COMMANDS**
+!hl || The help command
+!link {apex_username}|| Writes the discordID and Apex Username to a names.txt file
+!stats {apex_username} || Checks someones stats
+!clearnames | !cn || Clears the names.txt file
+
+**PLANNED STUFF**
  - Top 10 list based on RankedPoints
- - Roles
- - If already has a role then remove old one if role has been updated
+ - Roles based on rankedpoints
  - More options to stats
+ - If !stats and no arguments then add the argument form names.txt file
   
