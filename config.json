@@ -1,5 +1,10 @@
 {
 	"prefix": "!",
+<<<<<<< HEAD
 	"token": "NzE5NTQyMTE4OTU1MDkwMDEx.Xt470Q.R_hRWjrPF4-ESTeddGbDanfradA",
 	"TRN_Token": "5bef200d-a445-4503-b468-27fe3516e9ed"
 }
+=======
+	"TRN_Token": "tracker-network-token"
+}
+>>>>>>> a88fa9de81fa80d851e349471fbfcfde976cc95f
