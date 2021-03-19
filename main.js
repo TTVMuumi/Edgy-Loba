@@ -4,13 +4,14 @@ const config = require('./config.json');
 const https = require('follow-redirects').https;
 
 
+
 const client = new Discord.Client();
 const prefix = config.prefix;
 
 
 client.once('ready', () => {
     console.log('ApexRanks is now online!');
-    client.user.setPresence({ activity: { name: 'checking the stats!' }, status: 'online' })
+    client.user.setPresence({ activity: { name: '!hl || Checking the stats!' }, status: 'online' })
 })
 
 
@@ -39,8 +40,8 @@ function getUserFromMention(mention) {
         return ((x-min)*(x-max) <= 0);
     }
 
-    function getAfterColon(str, lineA) {
-        return str.split(':')[lineA];
+    function getAfterColon(str) {
+        return str.split(':');
     }
 
 
@@ -79,7 +80,7 @@ client.on('message', message => {
 
     if (command === "stats")
     {
-        if(!args.length){
+        if(!args.length){     
                 return message.channel.send("```apache\nIt doesent seem you have linked your account do\n!link {username} \n\nOr if you want to check someone elses stats do \n!stats {username}```");
             }
         var platform = "origin";
@@ -113,39 +114,105 @@ client.on('message', message => {
         
                 try {             
                     json = JSON.parse(data);
-
                     name = args[0];
                     level = json.data.segments[0].stats.level.value;
                     RankedPoints = json.data.segments[0].stats.rankScore.value;
+                    
 
                     //#region ranks
                     //In range bronze
 
                     let member = message.guild.member(message.author);
                     if(inRange(RankedPoints, 0, 1200) === true){
-                        rank = "Bronze";
+
+                        if(inRange(RankedPoints, 0, 300)){
+                            rankNr = " 4";
+                        }
+                        if(inRange(RankedPoints, 300, 600)){
+                            rankNr = " 3";
+                        }
+                        if(inRange(RankedPoints, 600, 900)){
+                            rankNr = " 2";
+                        }
+                        if(inRange(RankedPoints, 900, 1200)){
+                            rankNr = " 1";
+                        }
+                        rank = "Bronze" + rankNr;
                     }
                     //In range silver
-                    if(inRange(RankedPoints, 1200, 1800) === true){
+                    if(inRange(RankedPoints, 1200, 2800) === true){
+
+                        if(inRange(RankedPoints, 1200, 1600)){
+                            rankNr = " 4";
+                        }
+                        if(inRange(RankedPoints, 1600, 2000)){
+                            rankNr = " 3";
+                        }
+                        if(inRange(RankedPoints, 2000, 2400)){
+                            rankNr = " 2";
+                        }
+                        if(inRange(RankedPoints, 2400, 2800)){
+                            rankNr = " 1";
+                        }
                         rank = "Silver";
                     }
                     //In range gold
                     if(inRange(RankedPoints, 2800, 4800) === true){
-                        rank = "Gold";
+
+                        if(inRange(RankedPoints, 2800, 3300)){
+                            rankNr = " 4";
+                        }
+                        if(inRange(RankedPoints, 3300, 3800)){
+                            rankNr = " 3";
+                        }
+                        if(inRange(RankedPoints, 3800, 4300)){
+                            rankNr = " 2";
+                        }
+                        if(inRange(RankedPoints, 4300, 4800)){
+                            rankNr = " 1";
+                        }
+
+                        rank = "Gold" + rankNr;
                     }
                     //In range platinum
                     if(inRange(RankedPoints, 4800, 7200) === true){
-                        rank = "Platinum";
+
+                        if(inRange(RankedPoints, 4800, 5400)){
+                            rankNr = " 4";
+                        }
+                        if(inRange(RankedPoints, 5400, 6000)){
+                            rankNr = " 3";
+                        }
+                        if(inRange(RankedPoints, 6000, 6600)){
+                            rankNr = " 2";
+                        }
+                        if(inRange(RankedPoints, 6600, 7200)){
+                            rankNr = " 1";
+                        }
+                        rank = "Platinum" + rankNr;
                     }
                     //In range diamond
                     if(inRange(RankedPoints, 7200, 10000) === true){
-                        rank = "Diamond";
+
+                        if(inRange(RankedPoints, 7200, 7900)){
+                            rankNr = " 4";
+                        }
+                        if(inRange(RankedPoints, 7900, 8600)){
+                            rankNr = " 3";
+                        }
+                        if(inRange(RankedPoints, 8600, 9300)){
+                            rankNr = " 2";
+                        }
+                        if(inRange(RankedPoints, 9300, 10000)){
+                            rankNr = " 1";
+                        }
+                        rank = "Diamond" + rankNr;
                     }
                     //In range master
                     if(inRange(RankedPoints, 10000, 12000) === true){
                         rank = "Master";
                     }
-                    //In range predator this cant be set like this beacuse it changes dynamicly BAD SOLUTION
+                    //In range predator need better solution to show top 750
                     if(inRange(RankedPoints, 12000, 40000) === true){
                         rank = "Predator";
                         // member.roles.add(predator);
