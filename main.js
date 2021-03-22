@@ -29,13 +29,6 @@ function getUserFromMention(mention) {
 	}
 }
 
-    let y = process.openStdin()
-    y.addListener("data", res => {
-    let x = res.toString().trim().split(/ +/g)
-    message.channel.get("684035492446339092").send(x.join(" "));
-    });
-
-
     function inRange(x, min, max) {
         return ((x-min)*(x-max) <= 0);
     }
@@ -80,23 +73,19 @@ client.on('message', message => {
 
     if (command === "stats")
     {
-        if(!args.length){     
-                return message.channel.send("```apache\nIt doesent seem you have linked your account do\n!link {username} \n\nOr if you want to check someone elses stats do \n!stats {username}```");
-            }
-        var platform = "origin";
+        if(!args.length){
+                return message.channel.send("```apache\nIt doesent seem you have linked your account do\n!link {username} \n\nOr if you want to check someone elses stats do \n!stats {username} ```");
+        }
+
         var username = args[0];
+        var platform = "origin";
+        if(args[1] != undefined){
+            platform = args[1];
+        }
         var url = `https://public-api.tracker.gg/v2/apex/standard/profile/${platform}/${username}`;
         
-        //Variables for name kills etc.
         var name, RankedPoints, level, rank;
-        //Rank roles
-        // let bronze = message.guild.roles.cache.find(role => role.name === "Bronze");
-        // let silver = message.guild.roles.cache.find(role => role.name === "Silver");
-        // let gold = message.guild.roles.cache.find(role => role.name === "Gold");
-        // let platinum = message.guild.roles.cache.find(role => role.name === "Platinum");
-        // let diamond = message.guild.roles.cache.find(role => role.name === "Diamond");
-        // let master = message.guild.roles.cache.find(role => role.name === "Master");
-        // let predator = message.guild.roles.cache.find(role => role.name === "Predator");
+
 
         https.get(url, {
             headers: {

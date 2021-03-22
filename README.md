@@ -19,6 +19,5 @@ If you dont understand something then dm me in discord: TTV_Muumi#5637
 **PLANNED STUFF**
  - Top 10 list based on RankedPoints
  - Roles based on rankedpoints
- - More options to stats
  - If !stats and no arguments then add the argument form names.txt file
   
