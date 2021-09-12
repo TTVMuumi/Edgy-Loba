@@ -12,8 +12,8 @@ If you dont understand something then dm me in discord: TTV_Muumi#5637
 
 **COMMANDS**
  - !hl || The help command
- - !link {apex_username} || Writes the discordID and Apex Username to a names.txt file 
- - !stats {apex_username} || Checks someones stats
+ - !link {apex_username} || Writes the discordID and Apex Username to a names.txt file || Not working
+ - !stats {apex_username} || Checks someones stats || Not working
  - !clearnames | !cn || Clears the names.txt file
 
 **PLANNED STUFF**
